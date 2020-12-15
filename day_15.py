@@ -9,20 +9,19 @@ for index, number in enumerate(starting_sequence):
 
 
 def play(turns):
-    spoken_numbers = starting_sequence.copy()
+    prev_num = starting_sequence[-1]
     for turn in range(len(starting_sequence), turns):
 
-        prev_num = spoken_numbers[turn - 1]
         if occurrences[prev_num] == 1:
             next_num = 0
         else:
             next_num = turn - 1 - last_turn[prev_num]
 
         last_turn[prev_num] = turn - 1
-        spoken_numbers.append(next_num)
         occurrences[next_num] = occurrences.get(next_num, 0) + 1
+        prev_num = next_num
 
-    return spoken_numbers[-1]
+    return prev_num
 
 
 def part_one():
