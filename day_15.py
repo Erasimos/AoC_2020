@@ -26,7 +26,9 @@ def play(turns):
 
 
 def part_one():
+    ut.print_answer(play(2020))
+
+
+def part_two():
     ut.print_answer(play(30000000))
 
-
-part_one()
