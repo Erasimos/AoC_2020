@@ -1,4 +1,6 @@
 import math
+delta_positions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+
 
 def read_file(path):
     file = open(path, "r")
@@ -39,6 +41,10 @@ def lcm(numbers):
     for i in numbers[1:]:
         lcm = lcm * i // math.gcd(lcm, i)
     return lcm
+
+
+def udlr_neighbours(pos):
+    return [pos_add(pos, delta_pos) for delta_pos in delta_positions]
 
 
 def print_answer(answer):
